@@ -14,40 +14,54 @@
 {% block content %}
 
 
+<div class="container">
 
-<!-- world -->
-<h3> World News</h3>
-<ul>
-    {{ macro.displayMovieList(world)}}
-</ul>
+	<div class="row">
+		<!-- world -->
+		<h3> World News</h3>
+		<ul>
+		    {{ macro.displayMovieList(world)}}
+		</ul>
+	</div>
 
+	<div class="row">
+		<!-- sports news  -->
+		<h3> Sports News </h3>
+		<ul>
+		    {{ macro.displayMovieList(sports)}}
+		</ul>
 
-<!-- sports news  -->
-<h3> Sports News </h3>
-<ul>
-    {{ macro.displayMovieList(sports)}}
-</ul>
-
-<!-- business -->
-<h3>Business News</h3>
-<ul>
-    {{ macro.displayMovieList(business)}}
-</ul>
-
-
-<!-- buzz -->
-<h3>Buzz</h3>
-<ul>
-    {{ macro.displayMovieList(buzz)}}
-</ul>
+	</div>
 
 
-<!-- tech -->
-<h3>Tech News</h3>
-<ul>
-    {{ macro.displayMovieList(tech)}}
-</ul>
+	<div class="row">
+		<!-- business -->
+		<h3>Business News</h3>
+		<ul>
+		    {{ macro.displayMovieList(business)}}
+		</ul>
+	</div>
 
+
+	<div class="row">
+		<!-- buzz -->
+		<h3>Buzz</h3>
+		<ul>
+		    {{ macro.displayMovieList(buzz)}}
+		</ul>
+	</div>
+
+
+	<div class="row">
+		<!-- tech -->
+		<h3>Tech News</h3>
+		<ul>
+		    {{ macro.displayMovieList(tech)}}
+		</ul>
+	</div>
+
+
+</div>
 
 
 
