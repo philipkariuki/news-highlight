@@ -61,7 +61,7 @@ def get_articles(id):
 
 
 
-def process_results(sources_list):
+def process_sources_results(sources_list):
     '''
     Function  that processes the movie result and transform them to a list of Objects
 
