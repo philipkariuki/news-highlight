@@ -83,3 +83,30 @@ def process_sources_results(sources_list):
             sources_results.append(sources_object)
 
     return sources_results
+
+
+
+
+
+def process_articles(articles_list):
+    '''
+    process the dictionary and output a list of objects
+    '''
+    article_results = []
+    source_dictionary = {}
+    for result in articles_list:
+        source_id = result ['source']
+        source_dictionary['id'] = source_id['id']
+        source_dictionary['name'] = source_id['name']
+        id = source_dictionary['id']
+        name = source_dictionary['name']
+        description = result.get('description')
+        author = result.get('author')
+        url = result.get('url')
+
+        if name:
+            article_object = Article(id,name,description,author,url)
+
+            article_results.append(article_object)
+
+    return article_results
