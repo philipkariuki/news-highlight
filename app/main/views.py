@@ -19,7 +19,7 @@ def index():
 
     title = 'Home - 👀 News Watch - Only the real(not fake) news.'
 
-    return render_template('index.html', title=title,world=world_sources,sports=sports_sources,business=business_sources,buzz=buzz_sources,tech=tech_sources)
+    return render_template('index.html', title=title,general=general_sources,sports=sports_sources,business=business_sources,entertainment=entertainment_sources,technology=technology_sources)
 
 
 
