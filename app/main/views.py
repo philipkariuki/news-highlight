@@ -30,4 +30,4 @@ def source(id):
     source_id = id.upper()
     title = f'{source_id} - Top Articles'
 
-    return render_template('source.html',title=title,id=source_id, articles=articles)
+    return render_template('news.html',title=title,id=source_id, articles=articles)
