@@ -1,25 +1,116 @@
+
+<!-- DISPLAYING SOURCES MACRO -->
 {% macro displaySourcesList(sources_list) %}
+    {% for source in sources_list %}
+   
 
-    {% for news in news_list %}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 news-card">
-           <!--  <img src="{{ movie.poster }}" alt="{{ news.title }} poster" class="img-responsive"> -->
-            <li class="text-center">
-                <a href="/news/{{news.id}}">
-                    {{ news.title|truncate(20)}}</a>
-            </li>
-        </div>
+<style>
 
+
+
+.col-md-3 {
+
+margin: 30px;
+border: 2px solid #ccc;
+background-image: url('static/images/news.jpg'); 
+background-size: cover; 
+background-color: lightgrey;
+height: 180px;
+padding: 60px 0px;
+border-radius: 4px;
+box-shadow: 0 0 25px purple;
+
+
+}
+
+
+
+.grid { 
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 20px;
+  align-items: stretch;
+  }
+
+
+
+.text {
+  padding: 0 20px 20px;
+}
+.text > button {
+  background: grey;
+  border: 0;
+  color: yellow;
+  padding: 10px;
+  width: 100%;
+  }
+
+
+</style>
+
+
+ <a href="/source/{{source.id}}" target="_blank">
+
+        
+            <div class=col-md-3>
+                <div class="grid">
+                  <article>
+                    <div class="text">
+                      <button>{{source.name}}</button>
+                    </div>
+                  </article>
+                </div>
+            </div>
+    </a>
+    
+    
     {% endfor %}
-
 {% endmacro %}
 
 
-<!-- Displaying reviews macro -->
-<!-- {% macro displayReviews(review_list) %}
-    {% for review in review_list %}
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 review-card">
-        <h2> {{ review.title}} </h2>
-        <p> {{ review.review | truncate(30) }}</p>
-    </div>
-    {% endfor %}
-{% endmacro %} -->
+
+
+
+
+
+
+
+
+{% macro displayArticlesList(articles_list) %}
+
+    {% for habari in articles_list %}
+
+        <div class="container col-md-12 col-lg-12" style="background-color: #fff;
+    border: 1px solid #e8e8e9">
+           
+            <hr> {{habari.urlToImage}}
+            <div class="card"  style="height:auto; width:50%; margin-bottom:7%; margin-left:0%;">
+                <div class="card-body">
+                    <h2 style="size:21px" class="card-title text-warning">{{habari.title}}</h2>
+                    <hr>
+                    <p class="card-text text-body">{{habari.description}}</p>
+
+
+                    <img src="{{ habari.urlToImage }}" class="card-img-top img-responsive" alt="{{habari.title}}">
+                    <p class="card-text" style='text-align: right; padding-top: 1%;'><small class="text-muted">Article by {{habari.author}} on {{habari.publishedAt}}</small></p>
+                    <div class="text-center">
+                        <a target="_blank" href="{{habari.url}}">
+                        <button type="button" class="btn btn-primary">Click to read the full article</button>
+                        </a>
+                    </div>
+
+                </div>
+                <br>
+                <hr>
+            </div>
+            
+        </div>
+  {% endfor %}
+{% endmacro %}
+
+
+
+
+
+
+

@@ -2,7 +2,7 @@
 from flask import render_template,request,redirect,url_for
 from . import main
 from ..requests import get_sources,get_articles
-# from ..models import Source,Article
+
 
 # Views
 @main.route('/')
@@ -17,7 +17,7 @@ def index():
     entertainment_sources = get_sources('entertainment')
     technology_sources = get_sources('technology')
 
-    title = 'Home - 👀 News Watch - Only the real(not fake) news.'
+    title = '👀 News Watch 👀 : Only the real(not fake) news.'
 
     return render_template('index.html', title=title,general=general_sources,sports=sports_sources,business=business_sources,entertainment=entertainment_sources,technology=technology_sources)
 

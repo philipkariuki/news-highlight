@@ -10,61 +10,88 @@
 {% endblock %}
 
 
-<!-- Content block -->
-{% block content %}
 
+
+
+
+
+<!-- Content Block -->
+{% block content %}
+<div class="navbar navbar-light" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav" style="padding-left:30%">
+                <li><a href="#general">General</a></li>
+                <li><a href="#sports">Sports</a></li>
+                <li><a href="#Business">Business</a></li>
+                <li><a href="#entertainment">Entertainment</a></li>
+                <li><a href="#technology">Technology</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="page_name"> 
+        <h1><img src="static/images/newswatch.jpg" alt="" width="150px" height="75px"> | News Watch News</h1> 
+    </div>
+</div>
 
 <div class="container">
 
-	<div class="row">
-		<!-- world -->
-		<h3> General News</h3>
-		<ul>
-		    {{ macro.displaySourcesList(general)}}
-		</ul>
-	</div>
-
-	<div class="row">
-		<!-- sports news  -->
-		<h3> Sports News </h3>
-		<ul>
-		    {{ macro.displaySourcesList(sports)}}
-		</ul>
-
-	</div>
-
-
-	<div class="row">
-		<!-- business -->
-		<h3>Business News</h3>
-		<ul>
-		    {{ macro.displaySourcesList(business)}}
-		</ul>
-	</div>
-
-
-	<div class="row">
-		<!-- buzz -->
-		<h3>Entertainment</h3>
-		<ul>
-		    {{ macro.displaySourcesList(entertainment)}}
-		</ul>
-	</div>
-
-
-	<div class="row">
-		<!-- tech -->
-		<h3>Tech News</h3>
-		<ul>
-		    {{ macro.displaySourcesList(technology)}}
-		</ul>
-	</div>
-
-
+    <!-- General Sources section  -->
+    <hr />
+    <div class="source_section">
+        <h3 id="general" class="source_section_name">General News</h3>
+        <ul>
+            <div class="row">
+        	   {{ macro.displaySourcesList(general) }}
+            </div>
+        </ul>
+    </div>
+ <!-- Business Sources section  -->
+    <hr />
+    <div class="source_section">
+        <h3 id="business" class="source_section_name">Business News</h3>
+        <ul>
+            <div class="row">
+               {{ macro.displaySourcesList(business) }}
+            </div>
+        </ul>
+    </div>
+    <!-- Sport Sources section  -->
+    <hr />
+    <div class="source_section">
+        <h3 id="sport" class="source_section_name">Sports News</h3>
+        <ul>
+            <div class="row">
+               {{ macro.displaySourcesList(sports) }}
+            </div>
+        </ul>
+    </div>
+    <!-- Entertainment Sources section  -->
+    <hr />
+    <div class="source_section">
+        <h3 id="entertainment" class="source_section_name">Entertainment News</h3>
+        <ul>
+            <div class="row">
+               {{ macro.displaySourcesList(entertainment) }}
+            </div>
+        </ul>
+    </div>
+    <!-- Technology Sources section  -->
+    <hr />
+    <div class="source_section">
+        <h3 id="technology" class="source_section_name">Technology News</h3>
+        <ul>
+            <div class="row">
+               {{ macro.displaySourcesList(technology) }}
+            </div>
+        </ul>
+    </div>
+ 
 </div>
-
-
-
-
-{% endblock%}
-
+<footer>
+    <h4>Courtesy of <a href="https://newsapi.org" target="_blank">News API</a></h4>
+</footer>
+{% endblock %}

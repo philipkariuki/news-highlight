@@ -37,32 +37,14 @@ def get_sources(category):
     return source_results
 
 
-# def get_movies(category):
-#     '''
-#     Function that gets the json response to our url request
-#     '''
-#     get_movies_url = base_url.format(category,api_key)
-
-#     with urllib.request.urlopen(get_movies_url) as url:
-#         get_movies_data = url.read()
-#         get_movies_response = json.loads(get_movies_data)
-
-#         movie_results = None
-
-#         if get_movies_response['results']:
-#             movie_results_list = get_movies_response['results']
-#             movie_results = process_results(movie_results_list)
-
-
-#     return movie_results
 
 
 def get_articles(id):
     '''
     Function that gets the json response to url request
     '''
-    get_article_news_url = article_url.format(id,api_key)
-    with urllib.request.urlopen(get_article_news_url) as url:
+    get_article_url = article_url.format(id,api_key)
+    with urllib.request.urlopen(get_article_url) as url:
         get_articles_data = url.read()
         get_articles_response = json.loads(get_articles_data)
 
@@ -91,11 +73,12 @@ def process_sources_results(sources_list):
     for source_item in sources_list:
         id = source_item.get('id')
         name = source_item.get('name')
-        overview = source_item.get('overview')
+        description = source_item.get('description')
         category = source_item.get('category')
+        url = source_item.get('url')
 
         if name:
-            sources_object = Source(id,name,overview,category)
+            sources_object = Source(id,name,description,category,url)
             sources_results.append(sources_object)
 
     return sources_results
@@ -109,20 +92,28 @@ def process_articles(articles_list):
     process the dictionary and output a list of objects
     '''
     article_results = []
-    source_dictionary = {}
     for result in articles_list:
-        source_id = result ['source']
-        source_dictionary['id'] = source_id['id']
-        source_dictionary['name'] = source_id['name']
-        id = source_dictionary['id']
-        name = source_dictionary['name']
+
+        
+        title = result.get('title')
         description = result.get('description')
         author = result.get('author')
         url = result.get('url')
+        publishedAt = result.get('publishedAt')
+        urlToImage = result.get('urlToImage')
+        content = result.get('content')
 
-        if name:
-            article_object = Article(id,name,description,author,url)
+      
+        
+        
 
-            article_results.append(article_object)
+    
+        article_object = Article(title,description,author,url,publishedAt,urlToImage,content)
+
+        article_results.append(article_object)
 
     return article_results
+
+
+
+
